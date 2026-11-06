@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Mobeen | UI/UX Designer, Graphic Designer & 3D Artist</title>
+  <meta name="description" content="Portfolio of Muhammad Mobeen: Google-certified UI/UX designer, graphic designer, 3D artist and decal designer based in Islamabad, Pakistan.">
+
+  <!-- Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <!-- Google's <model-viewer> shows .glb 3D models in the browser -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <!-- Our own styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <header class="navbar">
+    <a href="#home" class="logo"><span class="logo-dot"></span>Mobeen</a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#three-d">3D</a>
+      <a href="#decals">Decals</a>
+      <a href="#about">About</a>
+      <a href="#certifications">Certificates</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+
+    <!-- Hamburger button: only visible on mobile -->
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO (first screen) ============ -->
+    <section class="hero" id="home">
+      <!-- Animated blue wave lines are drawn on this canvas by script.js -->
+      <canvas id="waveCanvas" aria-hidden="true"></canvas>
+
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="tag"><span class="pulse"></span> Available for freelance work</p>
+          <h1>
+            Designing visuals<br>
+            that <em>feel</em> <span class="gradient-text">alive.</span>
+          </h1>
+          <p class="hero-sub">
+            Hi, I'm <strong>Muhammad Mobeen</strong>, a Google-certified UI/UX designer,
+            graphic designer and 3D artist from Islamabad. I turn ideas into interfaces,
+            brands and 3D worlds.
+          </p>
+          <div class="buttons">
+            <a href="#work" class="btn btn-primary">See My Work</a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="photo-ring">
+            <img src="images/profile.jpg" alt="Portrait of Muhammad Mobeen">
+          </div>
+          <span class="float-badge badge-1">UI/UX</span>
+          <span class="float-badge badge-2">3D</span>
+          <span class="float-badge badge-3">Branding</span>
+        </div>
+      </div>
+
+      <!-- Counting stats (numbers animate in script.js) -->
+      <div class="stats">
+        <div class="stat"><span class="count" data-target="3">0</span>+<p>Years at Synapsify</p></div>
+        <div class="stat"><span class="count" data-target="9">0</span><p>Certificates</p></div>
+        <div class="stat"><span class="count" data-target="30">0</span>+<p>Decals Created</p></div>
+        <div class="stat"><span class="count" data-target="5">0</span><p>3D Models</p></div>
+      </div>
+
+      <!-- Layered blue waves at the bottom of the hero -->
+      <div class="waves" aria-hidden="true">
+        <svg class="wave wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"/></svg>
+        <svg class="wave wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,70 C240,10 480,110 720,70 C960,30 1200,110 1440,70 L1440,120 L0,120 Z"/></svg>
+        <svg class="wave wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,80 C240,40 480,120 720,80 C960,40 1200,120 1440,80 L1440,120 L0,120 Z"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ WORK: one slider per skill ============ -->
+    <section class="section" id="work">
+      <div class="section-head reveal">
+        <p class="tag">Portfolio</p>
+        <h2>Selected <span class="gradient-text">Work</span></h2>
+        <p class="muted">Pick a skill, then use the arrows (or swipe) to see every design one by one. Click an image to view it full size.</p>
+      </div>
+
+      <!-- Skill tabs: data-panel matches the id of a slider below -->
+      <div class="skill-tabs reveal" role="tablist">
+        <button class="active" data-panel="uiux">UI/UX Design</button>
+        <button data-panel="game">Game UI</button>
+        <button data-panel="logos">Logo Design</button>
+        <button data-panel="posters">Poster Design</button>
+        <button data-panel="packaging">Packaging</button>
+      </div>
+
+      <!-- Every .slider works the same way. To add a design, copy a <figure>. -->
+
+      <!-- UI/UX -->
+      <div class="slider active reveal" id="uiux">
+        <div class="slider-stage">
+          <figure><img src="images/work/ui-cover.jpg" alt="Travel app screens overview"><figcaption><b>Travel App</b> · Four-screen overview</figcaption></figure>
+          <figure><img src="images/work/ui-dribbble.jpg" alt="Travel app style guide with colors and font"><figcaption><b>Travel App</b> · Style guide &amp; key screens</figcaption></figure>
+          <figure><img src="images/work/ui-linkedin-home.jpg" alt="Travel app home screen"><figcaption><b>Travel App</b> · Home screen</figcaption></figure>
+          <figure><img src="images/work/ui-linkedin-login.jpg" alt="Travel app login screen"><figcaption><b>Travel App</b> · Login screen</figcaption></figure>
+          <figure><img src="images/work/ui-linkedin-signup.jpg" alt="Travel app sign up screen"><figcaption><b>Travel App</b> · Sign up screen</figcaption></figure>
+          <figure><img src="images/work/ui-mobile-login.png" alt="Mobile login page design"><figcaption><b>Mobile Login Page</b> · Figma design</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Game UI -->
+      <div class="slider reveal" id="game">
+        <div class="slider-stage">
+          <figure><img src="images/work/game-sign-in.png" alt="Junkyard Master sign in screen"><figcaption><b>Junkyard Master</b> · Sign in</figcaption></figure>
+          <figure><img src="images/work/game-group-71.png" alt="Junkyard Master connecting screen"><figcaption><b>Junkyard Master</b> · Connecting</figcaption></figure>
+          <figure><img src="images/work/game-blank-button.png" alt="Junkyard Master loading screen"><figcaption><b>Junkyard Master</b> · Loading</figcaption></figure>
+          <figure><img src="images/work/game-group-73.png" alt="Junkyard Master main menu"><figcaption><b>Junkyard Master</b> · Main menu</figcaption></figure>
+          <figure><img src="images/work/game-group-74.png" alt="Junkyard Master game screen"><figcaption><b>Junkyard Master</b> · Game screen</figcaption></figure>
+          <figure><img src="images/work/game-group-75.png" alt="Junkyard Master popup dialog"><figcaption><b>Junkyard Master</b> · Popup dialog</figcaption></figure>
+          <figure><img src="images/work/game-group-76.png" alt="Junkyard Master screen design"><figcaption><b>Junkyard Master</b> · Store screen</figcaption></figure>
+          <figure><img src="images/work/game-group-77.png" alt="Junkyard Master screen design"><figcaption><b>Junkyard Master</b> · Rewards screen</figcaption></figure>
+          <figure><img src="images/work/game-group-78.png" alt="Junkyard Master level screen"><figcaption><b>Junkyard Master</b> · Level screen</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Logos -->
+      <div class="slider reveal" id="logos">
+        <div class="slider-stage">
+          <figure><img src="images/work/logo-leopard.jpg" alt="Leopard Courier logo"><figcaption><b>Leopard Courier</b> · Logo design</figcaption></figure>
+          <figure><img src="images/work/logo-wine.jpg" alt="Wine logo"><figcaption><b>Wine</b> · Wordmark logo</figcaption></figure>
+          <figure><img src="images/work/logo-toilet.jpg" alt="Toilet logo"><figcaption><b>Toilet</b> · Typographic logo</figcaption></figure>
+          <figure><img src="images/work/logo-herbal.jpg" alt="Herbal Organic logo"><figcaption><b>Herbal Organic</b> · Logo design</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Posters -->
+      <div class="slider reveal" id="posters">
+        <div class="slider-stage">
+          <figure><img src="images/work/adorance-adorance-collection.jpg" alt="Adorance collection poster"><figcaption><b>Adorance</b> · Collection poster</figcaption></figure>
+          <figure><img src="images/work/adorance-aura.jpg" alt="Adorance Aura perfume poster"><figcaption><b>Adorance</b> · Aura perfume</figcaption></figure>
+          <figure><img src="images/work/adorance-fateh.jpg" alt="Adorance Fateh perfume poster"><figcaption><b>Adorance</b> · Fateh perfume</figcaption></figure>
+          <figure><img src="images/work/adorance-king.jpg" alt="Adorance King perfume poster"><figcaption><b>Adorance</b> · King perfume</figcaption></figure>
+          <figure><img src="images/work/adorance-vision.jpg" alt="Adorance Vision perfume poster"><figcaption><b>Adorance</b> · Vision perfume</figcaption></figure>
+          <figure><img src="images/work/adorance-adore.jpg" alt="Adorance Adore perfume poster"><figcaption><b>Adorance</b> · Adore perfume</figcaption></figure>
+          <figure><img src="images/work/adorance-adore-perfume.jpg" alt="Adorance Adore perfume poster on pink"><figcaption><b>Adorance</b> · Adore campaign</figcaption></figure>
+          <figure><img src="images/work/adorance-office.jpg" alt="Adorance office perfume poster"><figcaption><b>Adorance</b> · Office edition</figcaption></figure>
+          <figure><img src="images/work/poster-quaid-day.jpg" alt="Quaid-e-Azam Day poster"><figcaption><b>Quaid-e-Azam Day</b> · 25 December poster</figcaption></figure>
+          <figure><img src="images/work/poster-chocolate.jpg" alt="Chocolate advertising poster"><figcaption><b>Delicious Chocolate</b> · Ad poster</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Packaging (images load from the Framer site) -->
+      <div class="slider reveal" id="packaging">
+        <div class="slider-stage">
+          <figure><img src="https://framerusercontent.com/images/W7bXB4tsou7l5mHYU8sze3sBeg.png" alt="Coffee bag packaging mockup"><figcaption><b>Coffee Bag</b> · Packaging mockup</figcaption></figure>
+          <figure><img src="https://framerusercontent.com/images/wiKJEMnfMgzGTYr37sicxtkByl8.jpg" alt="Surgical blade product label"><figcaption><b>Dermaplaning Blades</b> · Print-ready label</figcaption></figure>
+          <figure><img src="https://framerusercontent.com/images/GkhJfmw17Q5eehve51WR25Ijjnk.png" alt="Product design concept"><figcaption><b>Product Design</b> · Concept visual</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3D MODELING (real .glb models) ============ -->
+    <section class="section" id="three-d">
+      <div class="three-d-card reveal">
+        <div class="three-d-text">
+          <p class="tag">Freelance · 3D Artist</p>
+          <h2>3D <span class="gradient-text">Modeling</span></h2>
+          <p class="muted">
+            Real-time 3D models built for games and product visuals. Drag to rotate,
+            scroll or pinch to zoom.
+          </p>
+
+          <!-- Each button loads a different .glb file into the viewer -->
+          <div class="model-list">
+            <button class="active" data-model="models/lab_test_tube_with_rack_2.glb">Lab Test Tube Rack</button>
+            <button data-model="models/lighting_magnifying_lamp_1.glb">Magnifying Lamp</button>
+            <button data-model="models/lighting_light_bulb_with_bulb_holder_6.glb">Light Bulb &amp; Holder</button>
+            <button data-model="models/hospital_scrub_sink_1.glb">Hospital Scrub Sink</button>
+            <button data-model="models/Office-Wall-10.glb">Office Wall</button>
+          </div>
+        </div>
+
+        <model-viewer
+          id="modelViewer"
+          src="models/lab_test_tube_with_rack_2.glb"
+          alt="3D model by Muhammad Mobeen"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1"
+          exposure="1.1"
+          environment-image="neutral"
+          touch-action="pan-y"
+          ar>
+          <div class="model-loading" slot="poster">Loading 3D model…</div>
+        </model-viewer>
+      </div>
+    </section>
+
+    <!-- ============ DECALS SHOWCASE ============ -->
+    <section class="section" id="decals">
+      <div class="section-head reveal">
+        <p class="tag">Freelance · Substance Designer</p>
+        <h2>Decal <span class="gradient-text">Creation</span></h2>
+        <p class="muted">Realistic PBR decals for games and 3D scenes. Each decal is a full texture set. Tap the buttons to switch between its maps.</p>
+      </div>
+
+      <h3 class="decal-group reveal">Fingerprint Decals</h3>
+      <div class="decal-grid">
+        <article class="decal reveal" data-decal="fp-single">
+          <img src="images/decals/fp-single-basecolor.jpg" alt="Single clean fingerprint decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Single Clean Fingerprint</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+        <article class="decal reveal" data-decal="fp-layered">
+          <img src="images/decals/fp-layered-basecolor.jpg" alt="Overlapping layered fingerprints decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Overlapping Fingerprints</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+        <article class="decal reveal" data-decal="fp-ink">
+          <img src="images/decals/fp-ink-basecolor.jpg" alt="Ink and paint fingerprints decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Ink &amp; Paint Fingerprints</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="decal-group reveal">Glass Crack Decals</h3>
+      <div class="decal-grid">
+        <article class="decal reveal" data-decal="crack-window">
+          <img src="images/decals/crack-window-basecolor.jpg" alt="Window pane crack decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Window Pane Cracks</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+        <article class="decal reveal" data-decal="crack-mirror">
+          <img src="images/decals/crack-mirror-basecolor.jpg" alt="Mirror crack and silvering damage decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Mirror Cracks &amp; Silvering</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+        <article class="decal reveal" data-decal="crack-car">
+          <img src="images/decals/crack-car-basecolor.jpg" alt="Car windshield crack decal" loading="lazy">
+          <div class="decal-info">
+            <h4>Car Windshield Cracks</h4>
+            <div class="map-btns"><button class="active" data-map="basecolor">Color</button><button data-map="normal">Normal</button><button data-map="opacity">Opacity</button></div>
+          </div>
+        </article>
+      </div>
+
+      <ul class="pills reveal">
+        <li>Dusty Fingerprints</li><li>Greasy Kitchen Prints</li><li>Wet &amp; Damp Prints</li>
+        <li>Phone &amp; Tablet Screen Cracks</li><li>Shower Glass Cracks</li><li>Stovetop Cracks</li>
+        <li>Porcelain Cracks</li><li>Lens Smudges</li><li>+ 20 more</li>
+      </ul>
+    </section>
+
+    <!-- ============ ABOUT + EXPERIENCE ============ -->
+    <section class="section" id="about">
+      <div class="about-card reveal">
+        <img class="about-photo" src="images/profile.jpg" alt="Muhammad Mobeen" loading="lazy">
+        <div class="about-text">
+          <p class="tag">About Me</p>
+          <h2>Meet <span class="gradient-text">Mobeen</span></h2>
+          <p>
+            I'm a <strong>Google-certified UI/UX designer and graphic designer</strong> specializing
+            in product design, posters, branding and digital experiences. I blend creativity
+            with strategy to craft visuals that are not just beautiful, but meaningful.
+          </p>
+          <p>
+            As a freelance <strong>3D artist</strong>, I build game-ready models and realistic
+            PBR decals in Substance Designer. As a <strong>data annotator</strong>, I help AI
+            systems learn, bringing the same attention to detail to every design.
+          </p>
+          <ul class="pills">
+            <li>UI/UX Design</li><li>Figma</li><li>Photoshop</li><li>Illustrator</li>
+            <li>Branding</li><li>Poster Design</li><li>3D Modeling</li>
+            <li>Substance Designer</li><li>Decal Creation</li><li>Data Annotation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience timeline -->
+      <div class="timeline reveal">
+        <h3>Experience</h3>
+        <div class="tl-item">
+          <span class="tl-date">Present</span>
+          <div><h4>3D Artist &amp; Decal Designer</h4><p>Freelance</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2025 – Present</span>
+          <div><h4>Associate Graphic Designer</h4><p>Synapsify · Website banners, social media posts and UI elements</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2023 – Present</span>
+          <div><h4>Data Annotator</h4><p>Synapsify · Labeling image, text, audio and video data for AI</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2022 – 2023</span>
+          <div><h4>Data Entry Specialist</h4><p>Impex</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2020 – 2022</span>
+          <div><h4>ICS</h4><p>Superior College</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="section-head reveal">
+        <p class="tag">Services</p>
+        <h2>What I Can Do <span class="gradient-text">For You</span></h2>
+      </div>
+      <div class="services">
+        <div class="service reveal"><span class="service-icon">◐</span><h3>UI/UX Design</h3><p>Intuitive, user-first interfaces for websites, apps and games, from wireframes to polished screens.</p></div>
+        <div class="service reveal"><span class="service-icon">◆</span><h3>Branding &amp; Logos</h3><p>Logos and brand assets that give businesses a consistent, memorable identity.</p></div>
+        <div class="service reveal"><span class="service-icon">▣</span><h3>Posters &amp; Social Media</h3><p>Scroll-stopping posters, banners and campaign visuals that follow brand guidelines.</p></div>
+        <div class="service reveal"><span class="service-icon">⬡</span><h3>3D Modeling</h3><p>Game-ready 3D models and product visuals that bring ideas to life.</p></div>
+        <div class="service reveal"><span class="service-icon">✦</span><h3>Decal Creation</h3><p>PBR decals (color, normal, opacity, roughness) like fingerprints and glass cracks for realistic scenes.</p></div>
+        <div class="service reveal"><span class="service-icon">◎</span><h3>Data Annotation</h3><p>Precise labeling of images, text, audio and video to help AI models learn accurately.</p></div>
+      </div>
+
+      <!-- Moving text strip -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>UI/UX Design</span><span>Branding</span><span>Poster Design</span><span>Game UI</span><span>3D Modeling</span><span>Decals</span>
+          <span>UI/UX Design</span><span>Branding</span><span>Poster Design</span><span>Game UI</span><span>3D Modeling</span><span>Decals</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section class="section" id="certifications">
+      <div class="section-head reveal">
+        <p class="tag">Learning</p>
+        <h2>Certifications</h2>
+      </div>
+
+      <!-- Two big ones first -->
+      <div class="cert-featured">
+        <a class="cert-big reveal" href="https://coursera.org/verify/professional-cert/TUAZVW5HY3QH" target="_blank" rel="noopener">
+          <span class="cert-issuer">Google · Professional Certificate · 8 courses</span>
+          <h3>Google UX Design</h3>
+          <p>Nov 2025 · Verify ↗</p>
+        </a>
+        <a class="cert-big reveal" href="https://coursera.org/verify/specialization/LZ84D6CVUKJ6" target="_blank" rel="noopener">
+          <span class="cert-issuer">CalArts · Specialization · 5 courses</span>
+          <h3>Graphic Design</h3>
+          <p>Oct 2025 · Verify ↗</p>
+        </a>
+      </div>
+
+      <ul class="certs reveal">
+        <li><a href="https://coursera.org/verify/L6FGKFOL995T" target="_blank" rel="noopener"><span>Fundamentals of Graphic Design</span><small>CalArts · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/N0EXYTZ93FR5" target="_blank" rel="noopener"><span>Introduction to Typography</span><small>CalArts · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/0P0UPE58X5TH" target="_blank" rel="noopener"><span>Introduction to Imagemaking</span><small>CalArts · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/FXSMY6HTBVVP" target="_blank" rel="noopener"><span>Ideas from the History of Graphic Design</span><small>CalArts · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/SEY910AGD0CQ" target="_blank" rel="noopener"><span>Brand New Brand</span><small>CalArts · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/RWZXZJQM2R22" target="_blank" rel="noopener"><span>Work with Components in Figma</span><small>Coursera Project Network · Oct 2025 ↗</small></a></li>
+        <li><a href="https://coursera.org/verify/1H7GJ4V1XFD6" target="_blank" rel="noopener"><span>Generative AI for Everyone</span><small>DeepLearning.AI · Oct 2025 ↗</small></a></li>
+      </ul>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <p class="tag">Contact</p>
+        <h2>Let's create something<br><span class="gradient-text">great together.</span></h2>
+        <p class="muted">Based in Islamabad, Pakistan. Open to freelance and full-time work.</p>
+        <div class="buttons">
+          <a href="mailto:muhammadmobeen251@gmail.com" class="btn btn-primary">muhammadmobeen251@gmail.com</a>
+          <a href="https://www.linkedin.com/in/muhammadmobeen250" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Muhammad Mobeen. All rights reserved.</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <!-- ============ LIGHTBOX (full-size image viewer) ============ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Close">✕</button>
+    <button class="lb-prev" aria-label="Previous image">‹</button>
+    <img id="lbImg" alt="">
+    <button class="lb-next" aria-label="Next image">›</button>
+    <p class="lb-caption" id="lbCaption"></p>
+  </div>
+
+  <!-- Our JavaScript goes at the end so the HTML loads first -->
+  <script src="script.js"></script>
+</body>
+</html>
