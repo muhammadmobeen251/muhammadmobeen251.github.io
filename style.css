@@ -613,6 +613,32 @@ model-viewer {
   --poster-color: transparent;
 }
 
+/* Thin neon bar at the bottom of the viewer while a model downloads */
+.model-progress {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: opacity 0.4s;
+}
+
+.model-progress.done {
+  opacity: 0;
+}
+
+.model-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--blue-2), var(--cyan));
+  box-shadow: 0 0 10px var(--cyan);
+  transition: width 0.2s;
+}
+
 .model-loading {
   display: flex;
   align-items: center;
@@ -1119,19 +1145,18 @@ h2 {
   box-shadow: inset 0 0 12px rgba(59, 130, 246, 0.15), 0 0 12px rgba(59, 130, 246, 0.15);
 }
 
-/* Soft light that follows the mouse (desktop only; position set in script.js) */
+/* Small solid blue dot that follows the mouse (desktop only; position set in script.js) */
 .cursor-glow {
   position: fixed;
   top: 0;
   left: 0;
-  width: 500px;
-  height: 500px;
-  margin: -250px 0 0 -250px;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px; /* centers the dot on the mouse tip */
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.09), rgba(37, 99, 235, 0.05) 40%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.3s;
+  background: var(--blue-2);
+  pointer-events: none; /* clicks pass straight through it */
+  z-index: 300;         /* above everything, including the lightbox */
 }
 
 @media (hover: none) {

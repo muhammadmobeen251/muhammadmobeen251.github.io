@@ -196,6 +196,8 @@
           id="modelViewer"
           src="models/lab_test_tube_with_rack_2.glb"
           alt="3D model by Muhammad Mobeen"
+          loading="eager"
+          reveal="auto"
           camera-controls
           auto-rotate
           shadow-intensity="1"
@@ -204,6 +206,8 @@
           touch-action="pan-y"
           ar>
           <div class="model-loading" slot="poster">Loading 3D model…</div>
+          <!-- Progress bar: script.js updates its width while the model downloads -->
+          <div class="model-progress" slot="progress-bar"><span id="modelProgress"></span></div>
         </model-viewer>
       </div>
     </section>

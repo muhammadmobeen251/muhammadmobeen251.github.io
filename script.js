@@ -221,6 +221,14 @@ document.addEventListener("keydown", (e) => {
 
 // ============ 7. 3D MODEL SWITCHER ============
 const viewer = document.getElementById("modelViewer");
+const progressBar = document.getElementById("modelProgress");
+
+// model-viewer reports download progress from 0 to 1
+viewer.addEventListener("progress", (e) => {
+  const p = e.detail.totalProgress;
+  progressBar.style.width = `${p * 100}%`;
+  progressBar.parentElement.classList.toggle("done", p === 1);
+});
 document.querySelectorAll(".model-list button").forEach((btn) => {
   btn.addEventListener("click", () => {
     viewer.src = btn.dataset.model;
