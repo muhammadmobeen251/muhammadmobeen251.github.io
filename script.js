@@ -244,5 +244,16 @@ document.querySelectorAll(".decal").forEach((card) => {
   });
 });
 
-// ============ 9. FOOTER YEAR ============
+// ============ 9. NEON LIGHT THAT FOLLOWS THE MOUSE ============
+// Only on devices with a real mouse; phones skip it.
+if (window.matchMedia("(hover: hover)").matches && !reduceMotion) {
+  const glow = document.createElement("div");
+  glow.className = "cursor-glow";
+  document.body.append(glow);
+  document.addEventListener("pointermove", (e) => {
+    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+}
+
+// ============ 10. FOOTER YEAR ============
 document.getElementById("year").textContent = new Date().getFullYear();
